@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div id="level" >
+    <div class="level-1 box-border">
+          <div class="row">
+              <div class="col-md-12">
+              <label  class="col-sm-12"><h2>BIENVENIDO</h2></label>
+              <label class="col-sm-12 text">Sistema para la creación de productos en el cual podras registrar si así lo desea o bien podra editar productos existentes</label>
+
+              </div>
+              <div class="col-md-6">
+
+                  <!-- <li></li> -->
+                  <a href="{{ path('create_product') }}"><div class="button-product">Crear Productos</div></a>
+                  <a href=""><div class="button-product">Ver Productos</div></a>
+
+            </div>
+          </div>
+
+    </div>
+
+  </div>
+
+
+{% endblock %}
