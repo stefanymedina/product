@@ -1,35 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ProductBundle:ProductController:index
-
-
-
-{% endblock %}
-
-
-
-
 {% block body %}
-<h1>Welcome to the ProductController:index page</h1>
-<input type="text" name="" value="{{product.id}}">
+
 <div id="level" >
-    <div class="level-1">
+    <div class="level-1 box-border">
           <div class="row">
               <div class="col-md-12">
-              <label for=""><h3>Hola!!<h3></label>
-              <label for=""><h4>Nivel de dificultad que desea Jugar<h4></label>
+              <label  class="col-sm-12"><h2>BIENVENIDO</h2></label>
+              <label class="col-sm-12 text">Sistema para la creación de productos en el cual podras registrar si así lo desea o bien podra editar productos existentes</label>
 
               </div>
               <div class="col-md-6">
-                  <div class="button-simon" onclick="nivelJugar(0)">Bajo</div>
-                  <div class="button-simon" onclick="nivelJugar(1)">Medio</div>
-                  <div class="button-simon" onclick="nivelJugar(2)">Alto</div>
-                <!-- <button type="button" id="bajo" class="btn btn-default btn-simon" name="button" data-key="0"><b>Bajo</b></button>
-                <button type="button" id="medio" class="btn btn-default btn-simon" name="button" data-key="1"><b>Medio</b></button>
-                <button type="button" id="alto" class="btn btn-default btn-simon" name="button" data-key="2"><b>Alto</b></button> -->
-              </div>
+
+                  <!-- <li></li> -->
+                  <a href="{{ path('create_product') }}"><div class="button-product">Crear Productos</div></a>
+                  <a href=""><div class="button-product">Ver Productos</div></a>
+
+            </div>
           </div>
+
     </div>
+
   </div>
 
 

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+       <div class="level-2">
+          <div class="row">
+              <label class="col-sm-12" for=""><h3>Creación de Productos</h3></label>
+              <div class="col-sm-6">
+                <a href="{{ path('create_product') }}"><button type="button" class=" btn btn-default">Visualiazar Productos</button></a>
+                <a href="{{ path('index') }}"><button type="button" class=" btn btn-default">Ir al menu Principal</button></a>
+              </div>
+                <div class="level-3">
+                  <div>
+                      <form id="form-product" enctype="multipart/form-data">
+                        <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <label class="text">Código</label>
+                                <input type="text" class="form-control" id="code" name="code" />
+                              </div>
+                              <div class="col-sm-6">
+                                <label class="text">Nombre</label>
+                                <input type="text" class="form-control" id="name" name ="name" />
+                              </div>
+                              <div class="col-sm-12">
+                                <label class="text">Descripción</label>
+                                <textarea class="form-control" name="description" rows="4" cols="12"></textarea>
+                              </div>
+                              <div class="col-sm-4">
+                                <label class="text">Precio</label>
+                                <input class="form-control" type="text" id="cost" name="cost" value="">
+                              </div>
+                              <div class="col-sm-4">
+                                <label class="text" for="sel1">Categoría</label>
+                                   <select class="form-control categoryClass" id="category" data-id="brand">
+                                     <option selected disabled>Seleccionar..</option>
+                                    {% for category in category %}
+                                    <option value="{{category.id}}">{{category.name}}</option>
+                                    {% endfor %}
+                                   </select>
+                              </div>
+                              <div class="col-sm-4">
+                                <label class="text" >Marca</label>
+                                   <select class="form-control" id="brand">
+                                     <option selected disabled>Seleccionar..</option>
+                                   </select>
+                              </div>
+                              <div class="col-sm-12">
+                                <br>
+                                  <button type="submit" id="save-product" class="float-right btn btn-default">Guardar Producto</button>
+                              </div>
+                            </div>
+                         </div>
+                     </form>
+                 </div>
+               </div>
+        </div>
+{% endblock %}

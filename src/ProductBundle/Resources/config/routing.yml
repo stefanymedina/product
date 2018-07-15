@@ -3,5 +3,16 @@
 #     defaults: { _controller: ProductBundle:Default:index }
 
 index:
-    path:     /index
+    path:     /
     defaults: { _controller: ProductBundle:ProductController:index }
+
+
+create_product:
+  path:  /create_product
+  defaults: {_controller: ProductBundle:ProductController:formCreaProduc}
+
+
+load_product:
+  path: /load-producto/{fatherId}
+  defaults: {_controller: ProductBundle:ProductController:laodProduct }
+  methods:  [GET]
