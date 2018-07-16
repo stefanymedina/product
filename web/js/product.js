@@ -14,10 +14,6 @@ $('#table-product').DataTable();
       }
   });
 
-// $("#code").focusout(()=>{
-// let code = $("#code").val();
-//
-// })
 
 
   $(".categoryClass").on('change', function () {
@@ -103,7 +99,7 @@ $("#form-product").validate({
       }
     })
 
-    $('.eliminar-emp-rel').click(function () {
+    $('.del-product').click(function() {
         let productId = $(this).attr('data-id');
         swal({
               title: 'Seguro que desea eliminar el producto?',
@@ -129,22 +125,67 @@ $("#form-product").validate({
                                 )
                                 location.reload();
                             }, 500);
+                  },
+                  error: function (response) {
+                    alert("Error al Borrar Producto")
+                  }
+              });
+            })
+    });
+
+    $("#form-edit-product").validate({
+      rules: {
+          code : {required:true, minlength: 4, maxlength: 10},
+          name : {required:true, minlength: 4},
+          description : {required:true},
+          cost : {required:true},
+          category : {required:true},
+          brand : {required:true},
 
 
+      },
+      messages:{
+          code: {required: "*Debe introducir un codigo",  minlength: "*Debe tener minimo 4 caracteres", maxlength: "*Debe tener maximo 10 caracteres" },
+          name: {required: "*Debe introducir un nombre",  minlength: "*Debe tener minimo 4 caracteres" },
+          description : {required: "*Debe introducir una descripción" },
+          cost : {required: "*Debe introducir un precio para el producto" },
+          category : {required: "*Debe introducir una categoria" },
+          brand : {required: "*Debe introducir una marca" },
+      },
+
+      submitHandler: (form)=> {
+            let data = $("#form-edit-product").serialize();
+              $.ajax({
+                  url: "edition-product",
+                  type: 'POST',
+                  data: data,
+                  contentType: "application/x-www-form-urlencoded",
+                  dataType: "json",
+                  success: function (response) {
+                    if(response.error == 0){
+                      setTimeout(()=>{
+                        $("#success-save").removeAttr('hidden');
+                        $("#success-save").fadeOut(3000)
+                        $("#message-success").text(response.mensaje)
+                        location.reload();
+                      }, 500)
+                    }else{
+                      setTimeout(()=>{
+                        $("#erro-save").removeAttr('hidden')
+                        $("#erro-save").fadeOut(3000)
+                        $("#message-danger").text(response.mensaje)
+                      }, 500)
+                    }
 
                   },
                   error: function (response) {
-                    alert("Error al Borrar Producto15")
+                    alert("se ha genarado un error");
+
+
                   }
               });
-
-
-
-            })
-
-    });
-
-
+          }
+        })
 
 
 

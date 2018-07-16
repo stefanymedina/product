@@ -40,7 +40,7 @@ textarea{
   margin-right: 80px;
   border-radius:10px;
   color: white;
-  height: 650px;
+  height: auto;
 }
 
 .level-3{
@@ -67,14 +67,14 @@ textarea{
   margin-left: 80Px;
   margin-right: 80px;
   color: black;
-  height: 400px;
+  height:auto;
   width: 800px;
 }
 
 
-a, a:hover, a:link{
-  color:white;
-  text-decoration:none;
+.aref{
+  color:white !important;
+  text-decoration:none !important;
 }
 
 .row {

@@ -32,9 +32,13 @@
                                   <td>{{product.price}}</td>
                                   <td>{{product.brand.name}}</td>
                                   <td>{{product.brand.category.name}}</td>
-                                  <td>editar</td>
                                   <td style="text-align: center; width: 5%; ">
-                                  <div style=" font-size: 16px; color: #8a1f11 ; cursor:pointer" data-id="{{product.id }}" class="eliminar-emp-rel" title="Eliminar Producto">
+                                  <div style=" font-size: 16px; color: #8a1f11 ; cursor:pointer" data-id="{{product.id }}" class="" title="Editar Producto">
+                                    <a style="color: #8a1f11 !important" href="{{ path('edit_product', {'data': product.id}) }}"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                  </div>
+                                  </td>
+                                  <td style="text-align: center; width: 5%; ">
+                                  <div style=" font-size: 16px; color: #8a1f11 ; cursor:pointer" data-id="{{product.id }}" class="del-product" title="Eliminar Producto">
                                       <i class="fa fa-minus-square" aria-hidden="true"></i>
                                   </div>
                                   </td>

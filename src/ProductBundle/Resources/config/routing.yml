@@ -20,11 +20,21 @@ load_product:
 save_product:
   path: /save-product
   defaults: {_controller: ProductBundle:ProductController:saveProduct }
-  methods:  [POST]
+
+
+edition_product:
+  path: /edit-product/edition-product
+  defaults: {_controller: ProductBundle:ProductController:editionProducto }
+
 
 delete_product:
   path: /delete-product/{data}
   defaults: {_controller: ProductBundle:ProductController:deleteProduct }
+  methods:  [GET]
+
+edit_product:
+  path: /edit-product/{data}
+  defaults: {_controller: ProductBundle:ProductController:editProduct }
   methods:  [GET]
 
 show_product:
