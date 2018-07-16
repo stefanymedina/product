@@ -21,3 +21,12 @@ save_product:
   path: /save-product
   defaults: {_controller: ProductBundle:ProductController:saveProduct }
   methods:  [POST]
+
+delete_product:
+  path: /delete-product/{data}
+  defaults: {_controller: ProductBundle:ProductController:deleteProduct }
+  methods:  [GET]
+
+show_product:
+  path:  /show_product
+  defaults: {_controller: ProductBundle:ProductController:showProduct}

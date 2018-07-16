@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+       <div class="level-2">
+          <div class="row">
+              <label class="col-sm-12" for=""><h3>Creación de Productos</h3></label>
+              <div class="col-sm-8">
+                <a href="{{ path('create_product') }}"><button type="button" class=" btn btn-default">Crear Productos</button></a>
+                <a href="{{ path('index') }}"><button type="button" class=" btn btn-default">Ir al menu Principal</button></a>
+              </div>
+                <div class="level-4">
+                  <div>
+                    <table id="table-product" class="table table-striped table-bordered" style="width:90%; margin-right:50px;">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
+                                    <th>Precio</th>
+                                    <th>Marca</th>
+                                    <th>Categoria</th>
+                                    <th>Editar</th>
+                                    <th>Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {% for product in product %}
+                              <tr>
+                                  <td>{{product.code}}</td>
+                                  <td>{{product.name}}</td>
+                                  <td>{{product.description}}</td>
+                                  <td>{{product.price}}</td>
+                                  <td>{{product.brand.name}}</td>
+                                  <td>{{product.brand.category.name}}</td>
+                                  <td>editar</td>
+                                  <td style="text-align: center; width: 5%; ">
+                                  <div style=" font-size: 16px; color: #8a1f11 ; cursor:pointer" data-id="{{product.id }}" class="eliminar-emp-rel" title="Eliminar Producto">
+                                      <i class="fa fa-minus-square" aria-hidden="true"></i>
+                                  </div>
+                                  </td>
+                              </tr>
+                              {% endfor %}
+
+                            </tbody>
+
+                          </table>
+                 </div>
+               </div>
+
+               <div class="col-sm-6">
+                 <br>
+                 <div class="text alert alert-success" hidden id="success-save">
+                   <strong>Success!</strong > <p id="message-success"> </p>
+                 </div>
+                 <div class="text alert alert-danger" hidden id="erro-save">
+                    <p id="message-danger"></p>
+                 </div>
+               </div>
+        </div>
+{% endblock %}
+{% block jsInLine %}
+
+{% endblock %}

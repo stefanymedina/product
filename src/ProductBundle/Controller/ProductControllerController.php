@@ -66,4 +66,28 @@ class ProductControllerController extends Controller
       return new JsonResponse(array('error' => 0, 'mensaje' => "Se almaceno el Producto correctamente"), 200);
     }
 
-}
+    public function deleteProductAction($data){
+      $em = $this->getDoctrine()->getManager();
+      $product = $em->getRepository('ProductBundle:Product')->find($data);
+        try{
+            if(!is_null($product)){
+                $em->remove($product);
+                $em->flush();
+
+            }
+        }catch(Exception $e){
+            print_r("Error al eliminar producto");
+        }
+        return new JsonResponse(array(true), 200);
+
+    }
+
+    public function showProductAction(){
+      $em = $this->getDoctrine()->getManager();
+      $product = $em->getRepository('ProductBundle:Product')->findAll();
+      return $this->render('@Product/ProductController/showProduct.html.twig', array(
+        'product' => $product
+      ));
+    }
+
+    }

@@ -58,6 +58,20 @@ textarea{
 }
 
 
+.level-4{
+  background: white;
+  justify-content: center;
+  text-align: left;
+  font-size: 12px;
+  margin-top: 80px;
+  margin-left: 80Px;
+  margin-right: 80px;
+  color: black;
+  height: 400px;
+  width: 800px;
+}
+
+
 a, a:hover, a:link{
   color:white;
   text-decoration:none;

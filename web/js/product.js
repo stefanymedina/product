@@ -1,4 +1,6 @@
 $(()=> {
+$('#table-product').DataTable();
+
   $("#cost").on({
       "focus": function (event) {
           $(event.target).select();
@@ -82,7 +84,7 @@ $("#form-product").validate({
                     $("#success-save").removeAttr('hidden');
                     $("#success-save").fadeOut(3000)
                     $("#message-success").text(response.mensaje)
-                  }, 500)                    
+                  }, 500)
                 }else{
                   setTimeout(()=>{
                     $("#erro-save").removeAttr('hidden')
@@ -93,13 +95,58 @@ $("#form-product").validate({
 
               },
               error: function (response) {
-                alert("hola");
+                alert("se ha genarado un error");
 
 
               }
           });
       }
     })
+
+    $('.eliminar-emp-rel').click(function () {
+        let productId = $(this).attr('data-id');
+        swal({
+              title: 'Seguro que desea eliminar el producto?',
+              text: "Una vez eliminado no se puede recuperar",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Borrar!'
+            }).then((result) => {
+              if (result.value)
+              $.ajax({
+                  url: "delete-product/"+productId,
+                  type: 'GET',
+                  contentType: "application/x-www-form-urlencoded",
+                  dataType: "json",
+                  success: function (response) {
+                        setTimeout(function () {
+                                swal(
+                                  'Borrado!',
+                                  'El producto se ha eliminado',
+                                  'success'
+                                )
+                                location.reload();
+                            }, 500);
+
+
+
+                  },
+                  error: function (response) {
+                    alert("Error al Borrar Producto15")
+                  }
+              });
+
+
+
+            })
+
+    });
+
+
+
+
 
 
 
