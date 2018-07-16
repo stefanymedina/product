@@ -4,7 +4,7 @@
        <div class="level-2">
           <div class="row">
               <label class="col-sm-12" for=""><h3>Creación de Productos</h3></label>
-              <div class="col-sm-6">
+              <div class="col-sm-8">
                 <a href="{{ path('create_product') }}"><button type="button" class=" btn btn-default">Visualiazar Productos</button></a>
                 <a href="{{ path('index') }}"><button type="button" class=" btn btn-default">Ir al menu Principal</button></a>
               </div>
@@ -31,7 +31,7 @@
                               </div>
                               <div class="col-sm-4">
                                 <label class="text" for="sel1">Categoría</label>
-                                   <select class="form-control categoryClass" id="category" data-id="brand">
+                                   <select class="form-control categoryClass" id="category" name="category" data-id="brand">
                                      <option selected disabled>Seleccionar..</option>
                                     {% for category in category %}
                                     <option value="{{category.id}}">{{category.name}}</option>
@@ -40,17 +40,27 @@
                               </div>
                               <div class="col-sm-4">
                                 <label class="text" >Marca</label>
-                                   <select class="form-control" id="brand">
+                                   <select class="form-control" id="brand" name="brand">
                                      <option selected disabled>Seleccionar..</option>
                                    </select>
                               </div>
                               <div class="col-sm-12">
                                 <br>
-                                  <button type="submit" id="save-product" class="float-right btn btn-default">Guardar Producto</button>
+                                  <button type="submit"  class="float-right btn btn-default">Guardar Producto</button>
                               </div>
                             </div>
                          </div>
                      </form>
+                 </div>
+               </div>
+
+               <div class="col-sm-6">
+                 <br>
+                 <div class="text alert alert-success" hidden id="success-save">
+                   <strong>Success!</strong > <p id="message-success"> </p>
+                 </div>
+                 <div class="text alert alert-danger" hidden id="erro-save">
+                    <p id="message-danger"></p>
                  </div>
                </div>
         </div>

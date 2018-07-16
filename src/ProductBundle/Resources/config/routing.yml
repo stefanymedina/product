@@ -16,3 +16,8 @@ load_product:
   path: /load-producto/{fatherId}
   defaults: {_controller: ProductBundle:ProductController:laodProduct }
   methods:  [GET]
+
+save_product:
+  path: /save-product
+  defaults: {_controller: ProductBundle:ProductController:saveProduct }
+  methods:  [POST]

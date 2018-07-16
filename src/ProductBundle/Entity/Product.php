@@ -22,11 +22,18 @@ class Product
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="code", type="integer", nullable=false)
+     * @ORM\Column(name="code", type="string", length=255, nullable=true)
      */
     private $code;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
 
     /**
      * @var string
@@ -67,7 +74,7 @@ class Product
     /**
      * Set code
      *
-     * @param integer $code
+     * @param string $code
      *
      * @return Product
      */
@@ -81,11 +88,35 @@ class Product
     /**
      * Get code
      *
-     * @return integer
+     * @return string
      */
     public function getCode()
     {
         return $this->code;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Product
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
