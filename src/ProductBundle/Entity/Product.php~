@@ -22,11 +22,18 @@ class Product
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="code", type="integer", nullable=false)
+     * @ORM\Column(name="code", type="string", length=255, nullable=true)
      */
     private $code;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
 
     /**
      * @var string

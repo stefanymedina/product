@@ -16,3 +16,27 @@ load_product:
   path: /load-producto/{fatherId}
   defaults: {_controller: ProductBundle:ProductController:laodProduct }
   methods:  [GET]
+
+save_product:
+  path: /save-product
+  defaults: {_controller: ProductBundle:ProductController:saveProduct }
+
+
+edition_product:
+  path: /edit-product/edition-product
+  defaults: {_controller: ProductBundle:ProductController:editionProducto }
+
+
+delete_product:
+  path: /delete-product/{data}
+  defaults: {_controller: ProductBundle:ProductController:deleteProduct }
+  methods:  [GET]
+
+edit_product:
+  path: /edit-product/{data}
+  defaults: {_controller: ProductBundle:ProductController:editProduct }
+  methods:  [GET]
+
+show_product:
+  path:  /show_product
+  defaults: {_controller: ProductBundle:ProductController:showProduct}
